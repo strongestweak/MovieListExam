@@ -1,0 +1,67 @@
+{% extends 'movie/base.html' %}
+{% load staticfiles %}
+
+
+{% block modals %}
+{% include 'movie/parts/confirm_delete_modal.html' %}
+{% endblock %}
+
+
+{% block metas %}
+{# this is different from {% csrf_token %} where this doesn't produce input #}
+<meta name="csrf" content="{{ csrf_token }}">
+<meta name="position_y" content="{{ movie.id }}">
+{% endblock %}
+
+
+{% block scripts %}
+<script 
+	type="text/javascript" 
+	src="{% static 'movie/js/like.js' %}"></script>
+{% endblock %}
+
+
+{% block main %}
+<main class="container-fluid">
+	<!-- MOVIE DETAILS -->
+	<h1>{{ movie.title }}</h1>
+
+	<!-- ACTIONS -->
+	<!-- <form action="{% url 'movie:like' movie.id %}" method="POST">{% csrf_token %} -->
+		<!-- should be type button -->
+	<button
+		type="button"
+		class="btn btn-default btn-sm"
+		id="send_like">
+		<span class="glyphicon glyphicon-thumbs-up"></span> 
+		<span id="movie_likes">{{ movie.likes }}</span> Likes
+	</button>
+	<!-- </form> -->
+	</a>
+	<a href="{% url 'movie:update' movie.id %}">
+		<button
+			type="button"
+			class="btn btn-warning btn-sm">
+			<span class="glyphicon glyphicon-pencil"></span> 
+			Edit
+		</button>
+	</a>
+	<button 
+		type="button" 
+		class="btn btn-danger btn-sm"
+		data-toggle="modal"
+		data-target="#delete_modal">
+		<span class="glyphicon glyphicon-trash"></span> 
+		<!-- TEXT -->
+		Delete
+	</button>
+
+	<hr>
+
+	<!-- MOVIE FURTHER DETAILS -->
+	<p><strong>{{ movie.director }}</strong></p>
+	<p>Summary:</p>
+	<p>{{ movie.summary }}</p>
+
+</main>
+{% endblock %}

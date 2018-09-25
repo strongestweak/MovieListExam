@@ -1,0 +1,60 @@
+
+h1 {
+	font-size: 24px;
+}
+
+header.container-fluid {
+	padding: 0px;
+}
+
+ul.navbar-nav.nav li {
+	text-align: center;
+}
+
+#greetings {
+	font-size: 19px;
+}
+
+
+main.container-fluid {
+	margin-bottom: 60px;
+}
+
+
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	/*background-color: #f3f3f3;*/
+	height: 50px;
+}
+
+
+
+.flex {
+	display: flex;
+}
+
+.wrap {
+	flex-wrap: wrap;
+}
+
+.flex--full-center {
+	height: 100%;
+	justify-content: center;
+}
+
+.flex--full-center p {
+	margin: 0px;
+	display: block;
+	align-self: center;
+}
+
+.flex--end {
+	align-self: flex-end;
+}
+
+.flex--top {
+	align-self: flex-start;
+}

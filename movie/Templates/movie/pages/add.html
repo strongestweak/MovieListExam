@@ -1,0 +1,23 @@
+{% extends 'movie/base.html' %}
+
+
+{% block main %}
+<main class="container-fluid">
+
+	<form method="POST">
+
+		{# TO REUSE ON UPDATE #}
+		{% include 'movie/parts/form.html' %}
+
+		<a href="{% url 'movie:list' %}">
+			<button
+				type="button"
+				class="btn btn-info">
+				Cancel
+			</button>
+		</a>
+
+	</form>
+
+</main>
+{% endblock %}
